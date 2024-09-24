@@ -603,6 +603,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542408285}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &706351143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6985428021655652602, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 958427007416135645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920512207
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,10 +985,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75067b1c928b9e438a267097b93083c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverLight: {fileID: 1386037}
-  maxLightIntensity: 30
-  enterLerpSpeed: 5
-  exitLerpSpeed: 3
+  Iddle:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  OnHoverEnter:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickOk:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickFailed:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
 --- !u!1 &1520238976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,10 +1053,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75067b1c928b9e438a267097b93083c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverLight: {fileID: 1419093508}
-  maxLightIntensity: 30
-  enterLerpSpeed: 5
-  exitLerpSpeed: 3
+  Iddle:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  OnHoverEnter:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickOk:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickFailed:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
 --- !u!65 &1520238979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1226,10 +1264,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75067b1c928b9e438a267097b93083c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverLight: {fileID: 1932783349}
-  maxLightIntensity: 30
-  enterLerpSpeed: 5
-  exitLerpSpeed: 3
+  Iddle:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  OnHoverEnter:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickOk:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickFailed:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
 --- !u!1 &1873239840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2007,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2732745790846911739, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 87d53771e0ee28f4f93944b270e3ef35,
+        type: 3}
+    - target: {fileID: 2732745790846911739, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87e10fb678bd0364c9fd6e087d0eebdc, type: 2}
     - target: {fileID: 6985428021655652602, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
         type: 3}
       propertyPath: m_Name
@@ -1961,7 +2026,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6985428021655652602, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 958427007416135647}
+    - targetCorrespondingSourceObject: {fileID: 6985428021655652602, guid: 6ccb9363afe763342bcf4e7805f1fd6f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 958427007416135650}
   m_SourcePrefab: {fileID: 100100000, guid: 6ccb9363afe763342bcf4e7805f1fd6f, type: 3}
 --- !u!4 &958427007416135646 stripped
 Transform:
@@ -1969,6 +2042,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 958427007416135645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &958427007416135647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706351143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75067b1c928b9e438a267097b93083c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Iddle:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0.003
+    LerpSpeed: 0.5
+  OnHoverEnter:
+    name: 1
+    Color: {r: 1, g: 0.82612735, b: 0, a: 0}
+    Thickness: 0.006
+    LerpSpeed: 1
+  ClickOk:
+    name: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Thickness: 0
+    LerpSpeed: 0
+  ClickFailed:
+    name: 0
+    Color: {r: 1, g: 0, b: 0, a: 0}
+    Thickness: 0.009
+    LerpSpeed: 1
+--- !u!65 &958427007416135650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706351143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3000002, y: 4, z: 3.2}
+  m_Center: {x: -0.050000012, y: 4.8, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

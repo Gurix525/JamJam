@@ -258,8 +258,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 1130.0,
-            "y": -63.999977111816409
+            "x": 1157.9998779296875,
+            "y": -157.00001525878907
         },
         "m_Blocks": [
             {
@@ -275,8 +275,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 1130.0,
-            "y": 136.00001525878907
+            "x": 1157.9998779296875,
+            "y": 43.000003814697269
         },
         "m_Blocks": [
             {
@@ -1089,10 +1089,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 974.0,
-            "y": 171.00001525878907,
-            "width": 145.0001220703125,
-            "height": 34.0
+            "x": 985.0,
+            "y": 81.00003814697266,
+            "width": 145.0,
+            "height": 33.999977111816409
         }
     },
     "m_Slots": [
@@ -1524,7 +1524,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Outline Thickness",
     "m_DefaultReferenceName": "_Outline_Thickness",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_OutlineThickness",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -1533,7 +1533,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.009999999776482582,
+    "m_Value": 0.0010000000474974514,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
@@ -1762,10 +1762,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 621.7529296875,
-            "y": -64.2469253540039,
-            "width": 208.0,
-            "height": 302.0
+            "x": 602.0,
+            "y": -157.00001525878907,
+            "width": 207.9998779296875,
+            "height": 302.0000305175781
         }
     },
     "m_Slots": [
@@ -2069,7 +2069,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Outline Color",
     "m_DefaultReferenceName": "_Outline_Color",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_OutlineColor",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -2079,7 +2079,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 1.0,
+        "r": 0.0,
         "g": 0.0,
         "b": 0.0,
         "a": 0.0
