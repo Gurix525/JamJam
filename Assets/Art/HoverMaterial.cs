@@ -95,8 +95,12 @@ public class HoverMaterial : MonoBehaviour
         SetOutline(ClickFailed);
         yield return new WaitForSeconds(.3f);
         SetOutline(Iddle);
-        yield return new WaitForSeconds(.1f);
+        currentLerpSpeed = 1f;
+        yield return new WaitForSeconds(.2f);
         SetOutline(ClickFailed);
+        yield return new WaitForSeconds(1f);
+        SetOutline(Iddle);
+        StopCoroutine(AnimateError());
     }
 
     private void SetOutline(Outline outline) { currentOutline = outline; targetFloat = 1f; currentFloat = 0f; }
