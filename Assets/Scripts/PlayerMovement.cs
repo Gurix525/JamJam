@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 _direction;
     private Rigidbody _rb;
-    public float speed = 5f;
+    public float Speed = 5f;
 
     public void Start()
     {
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        _rb.velocity = new Vector3(_direction.x, 0, _direction.y ) * speed;
+        _rb.velocity = new Vector3(_direction.x, 0, _direction.y ) * Speed;
 
         if (_direction != Vector2.zero)
         {
