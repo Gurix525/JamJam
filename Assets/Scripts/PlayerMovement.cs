@@ -9,13 +9,18 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 _inputDirection;
     private Rigidbody _rb;
-    public float speed = 5f;
-    private Camera _mainCamera; 
+    public float baseSpeed = 5f;
+    public float speed;
+    private Camera _mainCamera;
+    private Inventory _inventory;
+    public float speedPercentsPerItem;
 
     public void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _mainCamera = Camera.main; 
+        _mainCamera = Camera.main;
+        speed = baseSpeed;
+        _inventory = GameObject.FindObjectOfType<Inventory>();
     }
 
     public void Update()
@@ -43,5 +48,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         _inputDirection = value.Get<Vector2>();
+    }
+
+    public void UpdateSpeed()
+    {
+        speed = baseSpeed * (1-(_inventory.GetStackLen() * speedPercentsPerItem));
     }
 }
