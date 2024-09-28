@@ -12,4 +12,9 @@ public class MessagePanel : MonoBehaviour
 
         message.SetMessageText(text);
     }
+
+    public void RemoveMessage(int index = 0)
+    {
+        Destroy(transform.GetChild(index).gameObject);
+    }
 }

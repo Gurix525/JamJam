@@ -12,6 +12,9 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void GenerateItemList()
     {
+        if (transform.childCount + 1 > 3)
+            return;
+
         List<Item> itemList = new List<Item>();
         Array values = Enum.GetValues(typeof(Situations));
 
