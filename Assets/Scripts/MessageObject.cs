@@ -6,12 +6,19 @@ using UnityEngine;
 [Serializable]
 public class MessageObject
 {
+    public MessageObject(List<Item> items, List<int> amounts)
+    {
+        Items = items;
+        Amounts = amounts;
+    }
+
     public MessageObject(List<Item> items, List<int> amounts, Truck truck)
     {
         Items = items;
         Amounts = amounts;
         Truck = truck;
     }
+
     public void Check()
     {
         List<Item> truckItems = new List<Item>();
