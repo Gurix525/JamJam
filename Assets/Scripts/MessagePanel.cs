@@ -16,5 +16,4 @@ public class MessagePanel : MonoBehaviour
     {
         _text.text = text;
     }
-    //comment
 }
