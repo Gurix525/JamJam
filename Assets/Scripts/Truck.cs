@@ -1,14 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Truck : Interactable
 {
+
+
     private List<GameObject> _items = new List<GameObject>();
     private Inventory _inventory;
-    private bool _taken = false;
+
+    [field: SerializeField]
+    public int Number { get; private set; }
+
+    public Message Message { get; private set; }
 
     public List<GameObject> Items => _items;
+
+    public bool IsTaken { get; private set; }
 
     private void Start()
     {
@@ -34,19 +41,15 @@ public class Truck : Interactable
         Debug.Log("Bad");
     }
 
-    public bool GetTaken()
+    public void Take(Message message)
     {
-        return _taken;
-    }
-
-    public void Take()
-    {
-        _taken = true;
+        IsTaken = true;
+        Message = message;
     }
 
     public void UnTake()
     {
-        _taken = false;
+        IsTaken = false;
     }
 
     public List<GameObject> GetItems()
