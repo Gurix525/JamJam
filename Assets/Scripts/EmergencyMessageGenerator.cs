@@ -18,6 +18,9 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void GenerateItemList()
     {
+        if (transform.childCount + 1 > 3)
+            return;
+
         List<Item> itemList = new List<Item>();
         Array values = Enum.GetValues(typeof(Situations));
 
@@ -47,6 +50,8 @@ public class EmergencyMessageGenerator : MonoBehaviour
                 continue;
 
 
+            Debug.Log("Wybieram ilo��");
+            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
             Debug.Log("Wybieram ilo��");
             int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount);
 
