@@ -38,6 +38,15 @@
                     "id": "720234aa-4637-474c-a39a-1428bac40e74",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DropAll",
+                    "type": "Button",
+                    "id": "4d4d5997-631f-4822-a162-42e1c121d0cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -214,8 +223,19 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0671ba58-8812-425b-9afa-ce23c8d4a54b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DropAll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
