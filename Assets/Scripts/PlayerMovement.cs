@@ -9,11 +9,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 _inputDirection;
     private Rigidbody _rb;
+
+    public float Speed = 5f;
     public float baseSpeed = 5f;
     public float speed;
     private Camera _mainCamera;
     private Inventory _inventory;
     public float speedPercentsPerItem;
+
 
     public void Start()
     {
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        _rb.velocity = new Vector3(_direction.x, 0, _direction.y ) * Speed;
         Vector3 forward = _mainCamera.transform.forward;
         Vector3 right = _mainCamera.transform.right;
 
