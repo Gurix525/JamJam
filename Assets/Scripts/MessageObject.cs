@@ -6,6 +6,12 @@ using UnityEngine;
 [Serializable]
 public class MessageObject
 {
+    public MessageObject(List<Item> items, List<int> amounts)
+    {
+        Items = items;
+        Amounts = amounts;
+    }
+
     public MessageObject(List<Item> items, List<int> amounts, Truck truck)
     {
         Items = items;
@@ -13,6 +19,7 @@ public class MessageObject
         Truck = truck;
         Truck.Take();
     }
+
     public void Check()
     {
         List<Item> truckItems = new List<Item>();
