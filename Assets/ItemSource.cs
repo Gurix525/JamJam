@@ -22,7 +22,13 @@ public class ItemSource : Interactable
     public override void Interact()
     {
         if (_currentAmount == 0)
+        {
             return;
+        }
+        if (!_inventory.CanTakeAdditionalIten)
+        {
+            return;
+        }
         _currentAmount--;
         _inventory.AddItemToStack(Instantiate(_item, _inventory.transform).gameObject);
     }
