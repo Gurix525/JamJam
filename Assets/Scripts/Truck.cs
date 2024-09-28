@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Truck : Interactable
 {
-    private List<GameObject> _items;
+    private List<GameObject> _items = new List<GameObject>();
     private Inventory _inventory;
     private bool _taken = false;
 
@@ -17,7 +17,11 @@ public class Truck : Interactable
 
     public override void Interact()
     {
-        _items.Add(_inventory.RemoveItemFromStack());
+        GameObject item = _inventory.RemoveItemFromStack();
+        if (item != null)
+        {
+            _items.Add(item);
+        }
     }
 
     public void Good()
