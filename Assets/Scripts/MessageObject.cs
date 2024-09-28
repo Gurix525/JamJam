@@ -11,6 +11,7 @@ public class MessageObject
         Amounts = amounts;
     }
 
+    public string Message;
     public List<Item> Items = new List<Item>();
     public List<int> Amounts = new List<int>();
 }

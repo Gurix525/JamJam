@@ -15,6 +15,6 @@ public class MessagePanel : MonoBehaviour
     public void SetMessageText(string text)
     {
         _text.text = text;
+        _messageObject.Message = text;
     }
-    //comment
 }
