@@ -33,15 +33,12 @@ public class Inventory : MonoBehaviour
     {
         GameObject item = _items.Pop();
         Debug.Log($"Item removed from stack is: {item.name}");
-<<<<<<< Updated upstream
-        return item;
-=======
         onInventoryChangeCallback?.Invoke();
+        return item;
     }
 
     public float GetStackLen()
     {
         return _items.Count;
->>>>>>> Stashed changes
     }
 }
