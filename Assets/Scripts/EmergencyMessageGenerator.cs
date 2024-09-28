@@ -77,12 +77,15 @@ public class EmergencyMessageGenerator : MonoBehaviour
             i++;
         }
 
-        messageText.text = result + ":\n"+ list;
+        MessagePanel message = _messageObject.GetComponent<MessagePanel>();
+
+        message.SetMessage(result + ":\n" + list);
+        message.SetUpMessageObject(items, amounts);
     }
 }
 
 public enum Situations
 {
     flood,
-    fire
+    fire 
 }
