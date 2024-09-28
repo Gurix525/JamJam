@@ -65,8 +65,6 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void CreateMessage(List<Item> items, List<int> amounts)
     {
-        TMP_Text messageText = _messageObject.GetComponentInChildren<TMP_Text>();
-
         string result = "", list = "";
 
         int i = 0;
@@ -77,7 +75,10 @@ public class EmergencyMessageGenerator : MonoBehaviour
             i++;
         }
 
-        messageText.text = result + ":\n"+ list;
+        MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
+
+        messagePanel.SetMessageText(result + ":\n" + list);
+        messagePanel.SetUpMessageObject(items, amounts);
     }
 }
 

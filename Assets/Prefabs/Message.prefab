@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 729584553666826321}
   - component: {fileID: 3733585304352276040}
   - component: {fileID: 479999333918304901}
-  - component: {fileID: 1918100688757617825}
+  - component: {fileID: 8942356817764563611}
   m_Layer: 5
   m_Name: Message
   m_TagString: Untagged
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.25590515, y: 125.3}
-  m_SizeDelta: {x: -26.7457, y: -425.3635}
+  m_AnchoredPosition: {x: -0.2559204, y: 50.3362}
+  m_SizeDelta: {x: -26.7457, y: -275.4358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3733585304352276040
 CanvasRenderer:
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1918100688757617825
+--- !u!114 &8942356817764563611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,9 +86,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 828740119815485997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28d84a32c9c7aa44ab7e93f0543a1ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ea2c083f91e142408c615cd2cc52c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _messageObject:
+    Items: []
+    Amounts: 
+  _text: {fileID: 667067212790737206}
 --- !u!1 &8043135842327260586
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,8 +127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 6.105194, y: -4.1237}
+  m_SizeDelta: {x: -12.2104, y: -8.2473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909672106301390272
 CanvasRenderer:

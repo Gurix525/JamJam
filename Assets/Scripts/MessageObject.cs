@@ -1,18 +1,18 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageObject : MonoBehaviour
+[Serializable]
+public class MessageObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public MessageObject(List<Item> items, List<int> amounts)
     {
-        
+        Items = items;
+        Amounts = amounts;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    public List<Item> Items = new List<Item>();
+    public List<int> Amounts = new List<int>();
+
 }
