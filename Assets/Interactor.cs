@@ -23,6 +23,7 @@ public class Interactor : MonoBehaviour
         if (_interactables.Length == 0)
         {
             _targetInteractable = null;
+            return;
         }
         if (Vector3.Distance(_interactables.First().transform.position, transform.position) < _maxInteractionDistance)
         {
