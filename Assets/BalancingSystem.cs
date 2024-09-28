@@ -19,6 +19,9 @@ public class BalancingSystem : MonoBehaviour
     [SerializeField]
     private float _balancingSpeed = 0.01F;
 
+    [SerializeField]
+    private float _unbalanceMultiplierPerItem;
+
     private Vector2 _balanceDelta;
 
     public void OnMouseDelta(InputValue value)
@@ -65,7 +68,7 @@ public class BalancingSystem : MonoBehaviour
 
     private void AddOffset()
     {
-        _balancePointer.anchoredPosition += _balancePointer.anchoredPosition * _unbalancingSpeed * Time.deltaTime;
+        _balancePointer.anchoredPosition += _balancePointer.anchoredPosition * _unbalancingSpeed * Time.deltaTime * (1 + _unbalanceMultiplierPerItem * _inventory.GetStackLength());
     }
 
     private void AddBalance()
