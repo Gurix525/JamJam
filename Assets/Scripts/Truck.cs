@@ -22,17 +22,27 @@ public class Truck : Interactable
 
     public void Good()
     {
-        // todo
+        Debug.Log("Good");
     }
 
     public void Bad()
     {
-        // todo
+        Debug.Log("Bad");
     }
 
     public bool GetTaken()
     {
         return _taken;
+    }
+
+    public void Take()
+    {
+        _taken = true;
+    }
+
+    public void UnTake()
+    {
+        _taken = false;
     }
 
     public List<GameObject> GetItems()

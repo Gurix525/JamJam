@@ -11,6 +11,7 @@ public class MessageObject
         Items = items;
         Amounts = amounts;
         Truck = truck;
+        Truck.Take();
     }
     public void Check()
     {

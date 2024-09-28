@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        _rb.velocity = new Vector3(_direction.x, 0, _direction.y ) * Speed;
+        _rb.velocity = new Vector3(_inputDirection.x, 0, _inputDirection.y ) * Speed;
         Vector3 forward = _mainCamera.transform.forward;
         Vector3 right = _mainCamera.transform.right;
 

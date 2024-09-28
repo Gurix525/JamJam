@@ -52,8 +52,6 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
             Debug.Log("Wybieram ilo��");
             int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
-            Debug.Log("Wybieram ilo��");
-            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount);
 
             if (chosenItemAmount >= chosenAmount)
             {
