@@ -56,6 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpdateSpeed()
     {
-        speed = baseSpeed * (1-(_inventory.GetStackLen() * speedPercentsPerItem));
+        speed = baseSpeed * (1-(_inventory.GetStackLength() * speedPercentsPerItem));
     }
 }

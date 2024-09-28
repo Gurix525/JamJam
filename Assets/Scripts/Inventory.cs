@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public float GetStackLen()
+    public float GetStackLength()
     {
         return _items.Count;
     }
