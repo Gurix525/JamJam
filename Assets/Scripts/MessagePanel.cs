@@ -7,6 +7,8 @@ public class MessagePanel : MonoBehaviour
     [SerializeField] private MessageObject _messageObject;
     [SerializeField] private TMPro.TMP_Text _text;
 
+    public int ChildrenCount => transform.childCount;
+
     public void SetUpMessageObject(List<Item> items, List<int> amounts, Truck truck)
     {
         _messageObject = new MessageObject(items, amounts, truck);
