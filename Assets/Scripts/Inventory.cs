@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Stack<Item> _items;
+    private Stack<GameObject> _items = new();
 
-    public void AddItemToStack(Item item)
+    public void AddItemToStack(GameObject item)
     {
         _items.Push(item);
-        Debug.Log($"Item added to stack is: {item.Name}");
+        Debug.Log($"Item added to stack is: {item.name}");
     }
 
-    public void RemoveItemFromStack(Item item)
+    public void RemoveItemFromStack(GameObject item)
     {
         _items.Pop();
-        Debug.Log($"Item removed from stack is: {item.Name}");
+        Debug.Log($"Item removed from stack is: {item.name}");
     }
 }
