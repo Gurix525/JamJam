@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
 
     private Stack<GameObject> _items = new();
     private PlayerMovement _playerMovement;
+    private BalancingSystem _balancingSystem;
 
     public delegate void OnInventoryChange();
     public event OnInventoryChange onInventoryChangeCallback;
@@ -18,8 +19,10 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        _balancingSystem = FindObjectOfType<BalancingSystem>();
         _playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
         onInventoryChangeCallback += _playerMovement.UpdateSpeed;
+        EmptyCheck();
     }
 
     public void AddItemToStack(GameObject item)
@@ -52,5 +55,17 @@ public class Inventory : MonoBehaviour
     public float GetStackLen()
     {
         return _items.Count;
+    }
+
+    public void EmptyCheck()
+    {
+        if (_items.Count > 0)
+        {
+            _balancingSystem.gameObject.SetActive(true);
+        }
+        else
+        {
+            _balancingSystem.gameObject.SetActive(false);
+        }
     }
 }
