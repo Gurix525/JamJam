@@ -5,7 +5,7 @@ using UnityEngine;
 public class Phone : Interactable
 {
     [SerializeField] private GameObject _messagesPanel;
-    [SerializeField] private float _minCooldownTime, _maxCoodlownTime;
+    [SerializeField] private float _minCooldownTime, _maxCooldownTime;
 
     [SerializeField] private float _cooldownTime, _waitTime, _maxWaitTime;
     private bool _answeredCall, _waitingForAnswer;
@@ -23,10 +23,9 @@ public class Phone : Interactable
 
     private void FixedUpdate()
     {
-        if (_answeredCall && _cooldownTime >= 0)
+        if (_cooldownTime > 0)
         {
             _waitTime = _maxWaitTime;
-
             _cooldownTime -= Time.deltaTime;
         }
 
@@ -44,7 +43,9 @@ public class Phone : Interactable
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             _messagesPanel.GetComponent<MessagePanel>().RemoveMessage();
+        }
 
         if (!_waitingForAnswer)
         {
@@ -54,8 +55,8 @@ public class Phone : Interactable
 
         if (_waitTime <= 0)
         {
-            _answeredCall = false;
-            _cooldownTime = Random.Range(_minCooldownTime, _maxCoodlownTime);
+            ResetCallState();
+            _cooldownTime = Random.Range(_minCooldownTime, _maxCooldownTime);
             _waitTime = _maxWaitTime;
             PostNotAnsweredCall();
         }
@@ -69,20 +70,24 @@ public class Phone : Interactable
 
     public void PostNotAnsweredCall()
     {
-        Debug.Log("Call wasn't answered. ");
-        _answeredCall = false;
-        _waitingForAnswer = false;
+        Debug.Log("Call wasn't answered.");
+        ResetCallState();
     }
 
     public override void Interact()
     {
         _answeredCall = true;
         _messagesPanel.GetComponent<EmergencyMessageGenerator>().GenerateItemList();
-
-        _cooldownTime = Random.Range(_minCooldownTime, _maxCoodlownTime + 1);
+        _cooldownTime = Random.Range(_minCooldownTime, _maxCooldownTime + 1);
     }
 
     public void PostCallAnswered()
+    {
+        Debug.Log("Call was answered.");
+        ResetCallState();
+    }
+
+    private void ResetCallState()
     {
         _answeredCall = false;
         _waitingForAnswer = false;
