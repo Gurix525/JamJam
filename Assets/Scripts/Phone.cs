@@ -1,95 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Phone : Interactable
 {
-    [SerializeField] private GameObject _messagesPanel;
+    [SerializeField]
+    private MessagePanel _messagesPanel;
+
     [SerializeField] private float _minCooldownTime, _maxCooldownTime;
 
-    [SerializeField] private float _cooldownTime, _waitTime, _maxWaitTime;
-    private bool _answeredCall, _waitingForAnswer;
+    [SerializeField] private float _cooldown, _elapsedWaitForAnswerTime, _maxWaitForAnswerTime;
 
-    private void Awake()
-    {
-        _messagesPanel = FindObjectOfType<MessagePanel>().gameObject;
-    }
+    private bool _isCalling;
 
     private void Start()
     {
-        _waitTime = _maxWaitTime;
-        //Interact();
+        _messagesPanel = FindObjectOfType<MessagePanel>();
+        _cooldown = 3F;
     }
 
     private void FixedUpdate()
     {
-        if (_cooldownTime > 0)
+        if (_messagesPanel.ChildrenCount < 3)
+            if (!_isCalling)
+            {
+                _cooldown -= Time.fixedDeltaTime;
+            }
+        if (_cooldown <= 0F && !_isCalling)
         {
-            _waitTime = _maxWaitTime;
-            _cooldownTime -= Time.deltaTime;
+            Call();
         }
-
-        if (_waitTime > 0 && _messagesPanel.transform.childCount < 3)
+        if (_isCalling)
         {
-            _waitTime -= Time.deltaTime;
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && (_cooldownTime <= 0 || !_waitingForAnswer))
-        {
-            Interact();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _messagesPanel.GetComponent<MessagePanel>().RemoveMessage();
-        }
-
-        if (!_waitingForAnswer)
-        {
-            Debug.Log("Call");
-            CreateCall();
-        }
-
-        if (_waitTime <= 0)
-        {
-            ResetCallState();
-            _cooldownTime = Random.Range(_minCooldownTime, _maxCooldownTime);
-            _waitTime = _maxWaitTime;
-            PostNotAnsweredCall();
+            _elapsedWaitForAnswerTime += Time.fixedDeltaTime;
+            if (_elapsedWaitForAnswerTime >= _maxWaitForAnswerTime)
+            {
+                StopCallingWithoutAnswer();
+            }
         }
     }
 
-    public void CreateCall()
+    private void Call()
     {
         Debug.Log("Calling...");
-        _waitingForAnswer = true;
+        _elapsedWaitForAnswerTime = 0F;
+        _isCalling = true;
     }
 
-    public void PostNotAnsweredCall()
+    private void StopCallingWithoutAnswer()
     {
-        Debug.Log("Call wasn't answered.");
-        ResetCallState();
+        _isCalling = false;
+        RandomizeCooldown();
+    }
+
+    private void RandomizeCooldown()
+    {
+        _cooldown = UnityEngine.Random.Range(_minCooldownTime, _maxCooldownTime);
     }
 
     public override void Interact()
     {
-        _answeredCall = true;
+        if (_isCalling)
+        {
+            AnswerPhone();
+        }
+    }
+
+    private void AnswerPhone()
+    {
+        _isCalling = false;
+        RandomizeCooldown();
         _messagesPanel.GetComponent<EmergencyMessageGenerator>().GenerateItemList();
-        _cooldownTime = Random.Range(_minCooldownTime, _maxCooldownTime + 1);
-    }
-
-    public void PostCallAnswered()
-    {
-        Debug.Log("Call was answered.");
-        ResetCallState();
-    }
-
-    private void ResetCallState()
-    {
-        _answeredCall = false;
-        _waitingForAnswer = false;
     }
 }
