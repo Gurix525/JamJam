@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class EmergencyMessageGenerator : MonoBehaviour
 {
@@ -9,6 +8,13 @@ public class EmergencyMessageGenerator : MonoBehaviour
     [SerializeField] private Item[] _itemPrefabs;
 
     [SerializeField] private int _maxItemsAmount;
+
+    private Truck t;
+
+    private void Start()
+    {
+        GenerateItemList();
+    }
 
     public void GenerateItemList()
     {
@@ -44,12 +50,14 @@ public class EmergencyMessageGenerator : MonoBehaviour
                 continue;
 
 
-            Debug.Log("Wybieram iloœæ");
+            Debug.Log("Wybieram iloï¿½ï¿½");
             int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
+            Debug.Log("Wybieram iloï¿½ï¿½");
+            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount);
 
             if (chosenItemAmount >= chosenAmount)
             {
-                Debug.Log($"Iloœæ pasuje: {chosenAmount}");
+                Debug.Log($"Iloï¿½ï¿½ pasuje: {chosenAmount}");
                 chosenItemAmount -= chosenAmount;
                 amounts.Add(chosenAmount);
                 itemList.Add(item);
@@ -63,6 +71,7 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void CreateMessage(List<Item> items, List<int> amounts)
     {
+        
         string result = "", list = "";
 
         int i = 0;
@@ -73,10 +82,24 @@ public class EmergencyMessageGenerator : MonoBehaviour
             i++;
         }
 
-        Message message = _messageObject.GetComponent<Message>();
+        List<Truck> trucks = new List<Truck>(FindObjectsOfType<Truck>());
 
-        GetComponent<MessagePanel>().CreateMessage(result + ":\n" + list);
-        message.SetUpMessageObject(items, amounts);
+        foreach (Truck truck in trucks)
+        {
+            if (truck.GetTaken())
+            {
+                t = truck;
+                break;
+            }
+            
+        }
+
+        if (t != null)
+        {
+            MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
+            messagePanel.SetMessageText(result + ":\n" + list);
+            messagePanel.SetUpMessageObject(items, amounts, t);
+        }
     }
 }
 

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class MessagePanel : MonoBehaviour
 {
-    [SerializeField] private GameObject _messageObject;
+    [SerializeField] private MessageObject _messageObject;
+    [SerializeField] private TMPro.TMP_Text _text;
 
-    public void CreateMessage(string text)
+    public void SetUpMessageObject(List<Item> items, List<int> amounts, Truck truck)
     {
-        Message message = Instantiate(_messageObject.GetComponent<Message>(), transform);
+        _messageObject = new MessageObject(items, amounts, truck);
+    }
 
-        message.SetMessageText(text);
+    public void SetMessageText(string text)
+    {
+        _text.text = text;
+        _messageObject.Message = text;
     }
 
     public void RemoveMessage(int index = 0)
