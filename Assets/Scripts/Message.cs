@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessagePanel : MonoBehaviour
+public class Message : MonoBehaviour
 {
     [SerializeField] private MessageObject _messageObject;
     [SerializeField] private TMPro.TMP_Text _text;
@@ -16,10 +16,5 @@ public class MessagePanel : MonoBehaviour
     {
         _text.text = text;
         _messageObject.Message = text;
-    }
-
-    public void RemoveMessage(int index = 0)
-    {
-        Destroy(transform.GetChild(index).gameObject);
     }
 }

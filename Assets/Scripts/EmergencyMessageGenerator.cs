@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class EmergencyMessageGenerator : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     [SerializeField] private int _maxItemsAmount;
 
+    private Truck t;
+
     private void Start()
     {
         GenerateItemList();
@@ -17,6 +18,9 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void GenerateItemList()
     {
+        if (transform.childCount + 1 > 3)
+            return;
+
         List<Item> itemList = new List<Item>();
         Array values = Enum.GetValues(typeof(Situations));
 
@@ -46,12 +50,12 @@ public class EmergencyMessageGenerator : MonoBehaviour
                 continue;
 
 
-            Debug.Log("Wybieram iloœæ");
-            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount);
+            Debug.Log("Wybieram iloï¿½ï¿½");
+            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
 
             if (chosenItemAmount >= chosenAmount)
             {
-                Debug.Log($"Iloœæ pasuje: {chosenAmount}");
+                Debug.Log($"Iloï¿½ï¿½ pasuje: {chosenAmount}");
                 chosenItemAmount -= chosenAmount;
                 amounts.Add(chosenAmount);
                 itemList.Add(item);
@@ -65,6 +69,7 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void CreateMessage(List<Item> items, List<int> amounts)
     {
+        
         string result = "", list = "";
 
         int i = 0;
@@ -75,10 +80,24 @@ public class EmergencyMessageGenerator : MonoBehaviour
             i++;
         }
 
-        MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
+        List<Truck> trucks = new List<Truck>(FindObjectsOfType<Truck>());
 
-        messagePanel.SetMessageText(result + ":\n" + list);
-        messagePanel.SetUpMessageObject(items, amounts);
+        foreach (Truck truck in trucks)
+        {
+            if (truck.GetTaken())
+            {
+                t = truck;
+                break;
+            }
+            
+        }
+
+        if (t != null)
+        {
+            MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
+            messagePanel.SetMessageText(result + ":\n" + list);
+            messagePanel.SetUpMessageObject(items, amounts, t);
+        }
     }
 }
 

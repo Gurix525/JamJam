@@ -36,10 +36,17 @@ public class Inventory : MonoBehaviour
 
     public GameObject RemoveItemFromStack()
     {
-        GameObject item = _items.Pop();
-        Debug.Log($"Item removed from stack is: {item.name}");
-        onInventoryChangeCallback?.Invoke();
-        return item;
+        if (_items.Count>=1)
+        {
+            GameObject item = _items.Pop();
+            Debug.Log($"Item removed from stack is: {item.name}");
+            onInventoryChangeCallback?.Invoke();
+            return item;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public float GetStackLen()
