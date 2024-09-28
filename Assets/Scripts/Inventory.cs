@@ -18,9 +18,10 @@ public class Inventory : MonoBehaviour
         Debug.Log($"Item added to stack is: {item.name}");
     }
 
-    public void RemoveItemFromStack(GameObject item)
+    public GameObject RemoveItemFromStack()
     {
-        _items.Pop();
+        GameObject item = _items.Pop();
         Debug.Log($"Item removed from stack is: {item.name}");
+        return item;
     }
 }
