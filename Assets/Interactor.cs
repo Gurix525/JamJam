@@ -44,6 +44,10 @@ public class Interactor : MonoBehaviour
 
     public Interactable GetTargetInteractable()
     {
+        if (_interactables.Length == 0)
+        {
+            return null;
+        }
         return _interactables.First();
     }
 
