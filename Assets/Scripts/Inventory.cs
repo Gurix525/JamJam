@@ -29,6 +29,11 @@ public class Inventory : MonoBehaviour
         onInventoryChangeCallback?.Invoke();
     }
 
+    public void ClearStack()
+    {
+        _items.Clear();
+    }
+
     public GameObject RemoveItemFromStack()
     {
         if (_items.Count>=1)
