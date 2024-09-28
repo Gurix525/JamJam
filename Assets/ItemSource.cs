@@ -24,6 +24,6 @@ public class ItemSource : Interactable
         if (_currentAmount == 0)
             return;
         _currentAmount--;
-        _inventory.AddItemToStack(Instantiate(_item, _inventory.transform));
+        _inventory.AddItemToStack(Instantiate(_item, _inventory.transform).gameObject);
     }
 }
