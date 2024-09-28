@@ -10,11 +10,6 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     [SerializeField] private int _maxItemsAmount;
 
-    private void Start()
-    {
-        GenerateItemList();
-    }
-
     public void GenerateItemList()
     {
         List<Item> itemList = new List<Item>();
@@ -75,10 +70,10 @@ public class EmergencyMessageGenerator : MonoBehaviour
             i++;
         }
 
-        MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
+        Message message = _messageObject.GetComponent<Message>();
 
-        messagePanel.SetMessageText(result + ":\n" + list);
-        messagePanel.SetUpMessageObject(items, amounts);
+        GetComponent<MessagePanel>().CreateMessage(result + ":\n" + list);
+        message.SetUpMessageObject(items, amounts);
     }
 }
 

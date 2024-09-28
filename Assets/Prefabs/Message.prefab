@@ -90,8 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _messageObject:
-    Items: []
-    Amounts: 
+    Message: 
+    Items:
+    - {fileID: 3930127840289730039, guid: dd3eee90ab7f3974b9a01061ec0ce38c, type: 3}
+    Amounts: 01000000
   _text: {fileID: 667067212790737206}
 --- !u!1 &8043135842327260586
 GameObject:
@@ -127,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.105194, y: -4.1237}
+  m_AnchoredPosition: {x: 6.1051636, y: -4.1236877}
   m_SizeDelta: {x: -12.2104, y: -8.2473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909672106301390272
@@ -193,7 +195,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
