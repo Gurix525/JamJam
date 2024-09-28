@@ -18,7 +18,7 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void GenerateItemList()
     {
-        if (transform.childCount + 1 > 3)
+        if (transform.childCount >= 3)
             return;
 
         List<Item> itemList = new List<Item>();
@@ -69,7 +69,6 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
     public void CreateMessage(List<Item> items, List<int> amounts)
     {
-        
         string result = "", list = "";
 
         int i = 0;
