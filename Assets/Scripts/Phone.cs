@@ -11,6 +11,8 @@ public class Phone : Interactable
     [SerializeField] private float _minCooldownTime, _maxCooldownTime;
 
     [SerializeField] private float _cooldown, _elapsedWaitForAnswerTime, _maxWaitForAnswerTime;
+    
+    [SerializeField] private HealthSystem _healthSystem;
 
     private bool _isCalling;
 
@@ -51,6 +53,7 @@ public class Phone : Interactable
     {
         _isCalling = false;
         RandomizeCooldown();
+        _healthSystem.Damage(1);
     }
 
     private void RandomizeCooldown()
