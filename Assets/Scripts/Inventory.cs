@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
         onInventoryChangeCallback += _playerMovement.UpdateSpeed;
         onInventoryChangeCallback += EmptyCheck;
         EmptyCheck();
+
     }
 
     public void AddItemToStack(GameObject item)
@@ -54,7 +55,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public float GetStackLength()
+    public int GetStackLength()
     {
         return _items.Count;
     }
