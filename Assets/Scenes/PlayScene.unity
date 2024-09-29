@@ -817,7 +817,6 @@ MonoBehaviour:
   - {fileID: 3930127840289730039, guid: dd3eee90ab7f3974b9a01061ec0ce38c, type: 3}
   - {fileID: 604081970580966280, guid: 3423c6b564106804697a3f91e93010b2, type: 3}
   - {fileID: 3930127840289730039, guid: b6ba27aadd5d0914a833869d75b561c9, type: 3}
-  _maxItemsAmount: 3
 --- !u!1 &1511295148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1423,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1027038535}
     m_Modifications:
+    - target: {fileID: 316711659377635466, guid: 9ee6085589c5a4744a9551c207d30424,
+        type: 3}
+      propertyPath: <MaxTimer>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809818442945404430, guid: 9ee6085589c5a4744a9551c207d30424,
+        type: 3}
+      propertyPath: <MaxTimer>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3529319269641296392, guid: 9ee6085589c5a4744a9551c207d30424,
         type: 3}
       propertyPath: m_Name
@@ -1483,6 +1492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047364385521844542, guid: 9ee6085589c5a4744a9551c207d30424,
+        type: 3}
+      propertyPath: <MaxTimer>k__BackingField
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
