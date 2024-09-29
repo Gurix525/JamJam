@@ -47,9 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Fruit
   _messages:
-  - todo
+  - 'After the hurricane, residents require urgent assistance; to provide them with
+    fresh food and hydration, fruits are essential. '
+  - 'A food crisis has occurred; we urgently seek fruits to prepare packages for
+    those in need. '
+  - 'We are dealing with a heatwave; elderly people require fruits for hydration
+    and obtaining essential nutrients. '
   _minAmount: 1
   _maxAmount: 2
+
   <ViewPrefab>k__BackingField: {fileID: 7890214985565697198, guid: b85aaf80469e48845b30c0a7ab68ddf0,
     type: 3}
 --- !u!1001 &8535891393999148890
@@ -120,7 +126,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85aaf80469e48845b30c0a7ab68ddf0, type: 3}
---- !u!4 &3693279326776915657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4986815221071274387, guid: b85aaf80469e48845b30c0a7ab68ddf0,
     type: 3}

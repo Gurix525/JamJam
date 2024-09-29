@@ -47,7 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Health Torus
   _messages:
-  - todo
+  - 'An earthquake has occurred, and injured people require urgent medical support;
+    the Health Torus can be used to transport the injured to the hospital. '
+  - 'There has been an accident at the construction site; the Health Torus is necessary
+    for transporting injured workers to the first aid point. '
+  - 'After the hurricane, there are serious damages; without the Health Torus, we
+    will not be able to provide medical support for the affected. '
   _minAmount: 1
   _maxAmount: 2
   <ViewPrefab>k__BackingField: {fileID: 6291681247661083455, guid: 13f1901d06b85034d846b39b7560334f,
