@@ -49,4 +49,5 @@ MonoBehaviour:
   - "Zasypa\u0142o nam wej\u015Bcie \u015Bniegem"
   _minAmount: 1
   _maxAmount: 2
-  Situations: 00000000
+  <ViewPrefab>k__BackingField: {fileID: 4006650708613188594, guid: fd37c2b7ebae1024a9b7b4d0aad27e53,
+    type: 3}

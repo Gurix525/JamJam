@@ -49,4 +49,5 @@ MonoBehaviour:
   - "Zalano nam piwnic\u0119"
   _minAmount: 1
   _maxAmount: 2
-  Situations: 0000000001000000
+  <ViewPrefab>k__BackingField: {fileID: 608136627510771476, guid: 22fb2193e0e3e0d4195e8cd290de224f,
+    type: 3}
