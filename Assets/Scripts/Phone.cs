@@ -53,7 +53,7 @@ public class Phone : Interactable
     {
         _isCalling = false;
         RandomizeCooldown();
-        _healthSystem.Damage(1);
+        _healthSystem.DealDamage(1);
     }
 
     private void RandomizeCooldown()
