@@ -59,9 +59,11 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Tutorial.SetActive(true);
-        TutorialFirst.SetActive(true);
+        yield return new WaitForSeconds(5f);
 
-        yield return new WaitForSeconds(10f);
+        TutorialFirst.SetActive(false);
+
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneToLoad.name, LoadSceneMode.Single);
         StopAllCoroutines();
     }
