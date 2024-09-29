@@ -53,7 +53,11 @@ public class BalancingSystem : MonoBehaviour
     private void MoveFromZero()
     {
         if (_balancePointer.anchoredPosition == Vector2.zero)
-            _balancePointer.anchoredPosition = new Vector2(0.001F, 0.001F);
+        {
+            float x = new System.Random().Next(-10, 10);
+            float y = new System.Random().Next(-10, 10);
+            _balancePointer.anchoredPosition = new Vector2(x, y).normalized;
+        }
     }
 
     private void ResetFarAwayPointer()

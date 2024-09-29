@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TMP_Main.unity
     guid: a334f2e0acecc1d4aacf5dc7b1922140
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 434ce5a4ae7ceab4193a76ade6bb9ce1
   m_configObjects: {}

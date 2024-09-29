@@ -8,6 +8,7 @@ public class Truck : Interactable
 {
     public event EventHandler<bool> TruckSentOff;
 
+    [SerializeField]
     private Inventory _inventory;
 
     [field: SerializeField]
@@ -19,20 +20,18 @@ public class Truck : Interactable
 
     public bool IsTaken { get; private set; }
 
+    [field: SerializeField]
     public float MaxTimer { get; private set; }
 
-    public float Timer { get; private set; }
+    [field: SerializeField]
+    public float Timer { get; private set; } = 0F;
 
-    private void Start()
-    {
-        _inventory = FindObjectOfType<Inventory>();
-    }
 
     private void FixedUpdate()
     {
         if (IsTaken)
         {
-            Timer += Time.fixedTime;
+            Timer += Time.fixedDeltaTime;
         }
         if (Timer >= MaxTimer)
         {
@@ -81,7 +80,9 @@ public class Truck : Interactable
 
     public void UnTake()
     {
+        Timer = 0F;
         IsTaken = false;
+        SendTruckOff();
         gameObject.SetActive(false);
     }
     
