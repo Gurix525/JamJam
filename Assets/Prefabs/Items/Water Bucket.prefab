@@ -47,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Water Bucket
   _messages:
-  - "Zalano nam piwnic\u0119"
+  - 'A fire has broken out; water buckets are urgently needed to extinguish the flames! '
+  - 'A drought is ongoing; buckets are necessary to ensure access to water for animals! '
+  - 'The battle against the forest fire is ongoing; water buckets are essential for
+    extinguishing flames in hard-to-reach places! '
   _minAmount: 1
   _maxAmount: 2
   <ViewPrefab>k__BackingField: {fileID: 608136627510771476, guid: 22fb2193e0e3e0d4195e8cd290de224f,

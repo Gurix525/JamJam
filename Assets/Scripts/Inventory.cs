@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject RemoveItemFromStack()
     {
-        if (_items.Count>=1)
+        if (_items.Count >= 1)
         {
             GameObject item = _items.Pop();
             Debug.Log($"Item removed from stack is: {item.name}");

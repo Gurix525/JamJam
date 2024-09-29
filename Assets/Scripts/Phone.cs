@@ -16,6 +16,11 @@ public class Phone : Interactable
 
     private bool _isCalling;
 
+    private void Awake()
+    {
+        _trucksManager = FindObjectOfType<TrucksManager>();
+    }
+
     private void Start()
     {
         _cooldown = 3F;

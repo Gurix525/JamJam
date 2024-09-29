@@ -12,7 +12,7 @@ public class EmergencyMessageGenerator : MonoBehaviour
         List<Item> selectedItems = new();
         List<Item> shuffledItems = _itemPrefabs.Shuffle().ToList();
         List<int> amounts = new();
-        int randomItemsCount = new System.Random().Next(1, 3);
+        int randomItemsCount = new System.Random().Next(1, 2);
         for (int i = 0; i < randomItemsCount; i++)
         {
             selectedItems.Add(shuffledItems[i]);
