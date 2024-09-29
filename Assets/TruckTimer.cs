@@ -6,20 +6,18 @@ using UnityEngine.UI;
 
 public class TruckTimer : MonoBehaviour
 {
-    private GameObject _parent;
-    private Truck _grandParentTruck;
+    [SerializeField]
+    private Truck truck;
     private Image _image;
     
     void Start()
     {
-        _parent = transform.parent.gameObject;
-        _grandParentTruck = _parent.GetComponentInParent<Truck>();
         _image = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        _image.fillAmount = _grandParentTruck.GetTimer() / _grandParentTruck.GetCooldownTime();
+        _image.fillAmount = truck.Timer / truck.MaxTimer;
     }
 }

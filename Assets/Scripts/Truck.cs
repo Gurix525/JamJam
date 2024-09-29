@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Truck : Interactable
 {
@@ -18,10 +19,9 @@ public class Truck : Interactable
 
     public bool IsTaken { get; private set; }
 
-    [field: SerializeField]
-    private float cooldownTime;
+    public float MaxTimer { get; private set; }
 
-    private float _timer;
+    public float Timer { get; private set; }
 
     private void Start()
     {
@@ -32,9 +32,9 @@ public class Truck : Interactable
     {
         if (IsTaken)
         {
-            _timer += Time.fixedTime;
+            Timer += Time.fixedTime;
         }
-        if (_timer >= cooldownTime)
+        if (Timer >= MaxTimer)
         {
             UnTake();
         }
@@ -73,7 +73,7 @@ public class Truck : Interactable
 
     public void Take(Message message)
     {
-        _timer = 0f;
+        Timer = 0f;
         IsTaken = true;
         gameObject.SetActive(true);
         Message = message;
@@ -84,14 +84,5 @@ public class Truck : Interactable
         IsTaken = false;
         gameObject.SetActive(false);
     }
-
-    public float GetTimer()
-    {
-        return _timer;
-    }
-
-    public float GetCooldownTime()
-    {
-        return cooldownTime;
-    }
+    
 }
