@@ -26,9 +26,9 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed = 0f;
 
     private float speedModifier = 1f;
-    
 
-    
+
+
 
     public void Start()
     {
