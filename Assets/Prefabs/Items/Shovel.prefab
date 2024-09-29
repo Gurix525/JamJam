@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Shovel
   _messages:
-  - "Zasypa\u0142o nam wej\u015Bcie \u015Bniegem"
+  - 'Shovels are urgently needed for clearing mud during the flood; please provide
+    quick deliveries! '
+  - 'After heavy snowfall, shovels are necessary for clearing roads and sidewalks. '
+  - 'There has been flooding in basements; shovels are required for clearing mud
+    and removing water! '
   _minAmount: 1
   _maxAmount: 2
-  Situations: 00000000
