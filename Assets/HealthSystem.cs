@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class HealthSystem : MonoBehaviour
 {
 
-    public int Hp = 3;
+    public int  Hp { get; private set; } = 3;
 
-    public void Damage(int damage)
+    public void DealDamage(int damage)
     {
         Hp -= damage;
 

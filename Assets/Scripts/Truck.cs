@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Truck : Interactable
 {
@@ -18,9 +19,25 @@ public class Truck : Interactable
 
     public bool IsTaken { get; private set; }
 
+    public float MaxTimer { get; private set; }
+
+    public float Timer { get; private set; }
+
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (IsTaken)
+        {
+            Timer += Time.fixedTime;
+        }
+        if (Timer >= MaxTimer)
+        {
+            UnTake();
+        }
     }
 
     public override void Interact()
@@ -56,6 +73,7 @@ public class Truck : Interactable
 
     public void Take(Message message)
     {
+        Timer = 0f;
         IsTaken = true;
         gameObject.SetActive(true);
         Message = message;
@@ -66,4 +84,5 @@ public class Truck : Interactable
         IsTaken = false;
         gameObject.SetActive(false);
     }
+    
 }
