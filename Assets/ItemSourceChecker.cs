@@ -22,8 +22,7 @@ public class ItemSourceChecker : MonoBehaviour
         
         _interactable = _interactor.GetTargetInteractable();
         
-        if (Vector3.Distance(_interactable.transform.position, _interactor.transform.position) <
-            _interactor.GetMaxDistance() && _interactable.GetComponent<ItemSource>() != null)
+        if (Vector3.Distance(_interactable.transform.position, _interactor.transform.position) < _interactor.GetMaxDistance())
         {
             gameObject.transform.position = new Vector3(
                 _interactable.transform.position.x,

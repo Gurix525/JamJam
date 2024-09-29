@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public SceneAsset SceneToLoad;
+    public bool loadTut = true;
+    public String SceneToLoad;
 
     public Image Fade;
 
@@ -55,6 +56,11 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneSequence()
     {
+        if (!loadTut)
+        {
+            SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Single);
+            StopAllCoroutines();
+        }
         FadeOut();
         yield return new WaitForSeconds(3f);
 
@@ -64,7 +70,7 @@ public class SceneLoader : MonoBehaviour
         TutorialFirst.SetActive(false);
 
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(SceneToLoad.name, LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Single);
         StopAllCoroutines();
     }
     public void LoadScene()

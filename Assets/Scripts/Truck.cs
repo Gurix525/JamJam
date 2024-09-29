@@ -55,6 +55,7 @@ public class Truck : Interactable
 
     private void TryDropItemOnTruck()
     {
+        
         GameObject item = _inventory.RemoveItemFromStack();
         if (item != null)
         {
@@ -68,6 +69,14 @@ public class Truck : Interactable
         var truckList = Items.OrderBy(item => item.GetComponent<Item>().Name);
         TruckSentOff?.Invoke(this, messageList == truckList);
         Items.Clear();
+
+        Animator anm = GetComponentInChildren<Animator>();
+
+        if (anm)
+        {
+            anm.SetBool("holdingItems", true);
+            anm.SetFloat("velocity", 5f);
+        }
     }
 
     public void Take(Message message)
@@ -82,7 +91,6 @@ public class Truck : Interactable
     {
         Timer = 0F;
         IsTaken = false;
-        SendTruckOff();
         gameObject.SetActive(false);
     }
     

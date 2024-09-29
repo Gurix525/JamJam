@@ -22,7 +22,7 @@ public class InventoryView : MonoBehaviour
 
     private void _inventory_onInventoryChangeCallback()
     {
-        Item[] items = _inventory.Items.Reverse().ToArray();
+        Item[] items = _inventory.Items.Reverse().ToArray();    
         for (int i = 0; i < 4; i++)
         {
             if (i < items.Length)

@@ -1120,7 +1120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aefccd5d556ed46b43fbb650c19af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: {fileID: 102900000, guid: a334f2e0acecc1d4aacf5dc7b1922140, type: 3}
+  loadTut: 1
+  SceneToLoad: TMP_Main
   Fade: {fileID: 744916895}
   Tutorial: {fileID: 2055611804}
   TutorialFirst: {fileID: 2037129335}

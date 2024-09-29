@@ -301,8 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aefccd5d556ed46b43fbb650c19af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: {fileID: 102900000, guid: a334f2e0acecc1d4aacf5dc7b1922140, type: 3}
+  loadTut: 0
+  SceneToLoad: TMP_Main
   Fade: {fileID: 1002413033}
+  Tutorial: {fileID: 0}
+  TutorialFirst: {fileID: 0}
 --- !u!4 &67616700
 Transform:
   m_ObjectHideFlags: 0
