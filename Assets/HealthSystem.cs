@@ -14,7 +14,7 @@ public class HealthSystem : MonoBehaviour
 
         if (Hp <= 0)
         {
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
