@@ -64,6 +64,7 @@ MonoBehaviour:
   _maxPointerDistanceFromOrigin: 100
   _unbalancingSpeed: 0.8
   _balancingSpeed: 1
+  _unbalanceMultiplierPerItem: 1
 --- !u!114 &5133840142112822610
 MonoBehaviour:
   m_ObjectHideFlags: 0

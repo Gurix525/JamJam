@@ -28,6 +28,20 @@ public class TrucksManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        foreach (var truck in _trucks)
+        {
+            truck.TruckSentOff += Truck_TruckSentOff;
+        }
+    }
+
+    private void Truck_TruckSentOff(object sender, bool e)
+    {
+        (sender as Truck).UnTake();
+        _messagePanel.UpdateMessageViews(TakenTrucks);
+    }
+
     public bool IsAnyTruckFree => FreeTrucks.Count() > 0;
 
     public void TakeTruck(Message message)

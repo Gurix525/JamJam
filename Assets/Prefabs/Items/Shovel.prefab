@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b5e6c2340b36742850cc42c74274fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Shovel
   _messages:
   - "Zasypa\u0142o nam wej\u015Bcie \u015Bniegem"
   _minAmount: 1

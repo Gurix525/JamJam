@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
         _balancingSystem = FindObjectOfType<BalancingSystem>();
         _playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
         onInventoryChangeCallback += _playerMovement.UpdateSpeed;
+        onInventoryChangeCallback += EmptyCheck;
         EmptyCheck();
 
     }
@@ -36,6 +37,7 @@ public class Inventory : MonoBehaviour
     public void ClearStack()
     {
         _items.Clear();
+        onInventoryChangeCallback?.Invoke();
     }
 
     public GameObject RemoveItemFromStack()

@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Truck : Interactable
 {
+    public event EventHandler<bool> TruckSentOff;
+
     private Inventory _inventory;
 
     [field: SerializeField]
@@ -21,6 +25,20 @@ public class Truck : Interactable
 
     public override void Interact()
     {
+        TryDropItemOnTruck();
+        TrySendTruckOff();
+    }
+
+    private void TrySendTruckOff()
+    {
+        if (Items.Count == Message.AllItems.Count())
+        {
+            SendTruckOff();
+        }
+    }
+
+    private void TryDropItemOnTruck()
+    {
         GameObject item = _inventory.RemoveItemFromStack();
         if (item != null)
         {
@@ -28,14 +46,12 @@ public class Truck : Interactable
         }
     }
 
-    public void Good()
+    private void SendTruckOff()
     {
-        Debug.Log("Good");
-    }
-
-    public void Bad()
-    {
-        Debug.Log("Bad");
+        var messageList = Message.AllItems.OrderBy(item => item.GetComponent<Item>().Name);
+        var truckList = Items.OrderBy(item => item.GetComponent<Item>().Name);
+        TruckSentOff?.Invoke(this, messageList == truckList);
+        Items.Clear();
     }
 
     public void Take(Message message)
@@ -48,5 +64,6 @@ public class Truck : Interactable
     public void UnTake()
     {
         IsTaken = false;
+        gameObject.SetActive(false);
     }
 }
