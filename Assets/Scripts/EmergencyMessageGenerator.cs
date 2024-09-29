@@ -1,58 +1,24 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 
 public class EmergencyMessageGenerator : MonoBehaviour
 {
     [SerializeField] private Item[] _itemPrefabs;
 
-    [SerializeField] private int _maxItemsAmount;
-
     public Message GenerateMessage()
     {
-        List<Item> itemList = new List<Item>();
-        Array values = Enum.GetValues(typeof(Situations));
-
-        Situations situation = (Situations)values.GetValue(UnityEngine.Random.Range(0, values.Length));
-
-        Debug.Log($"Sytuacja {situation}");
-
-        int chosenItemAmount = UnityEngine.Random.Range(1, _maxItemsAmount + 1);
-        List<int> amounts = new List<int>();
-
-        foreach (Item item in _itemPrefabs)
+        List<Item> selectedItems = new();
+        List<Item> shuffledItems = _itemPrefabs.Shuffle().ToList();
+        List<int> amounts = new();
+        int randomItemsCount = new System.Random().Next(1, 3);
+        for (int i = 0; i < randomItemsCount; i++)
         {
-            Debug.Log($"Iteracja przedmiotu {item.Name}");
-            bool situationPasses = false;
-
-            foreach (int element in item.Situations)
-            {
-                if (element == (int)situation)
-                {
-                    Debug.Log("Sytuacja pasuje");
-                    situationPasses = true;
-                    break;
-                }
-            }
-
-            if (!situationPasses)
-                continue;
-
-            Debug.Log("Wybieram ilo��");
-            int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
-
-            if (chosenItemAmount >= chosenAmount)
-            {
-                Debug.Log($"Ilo�� pasuje: {chosenAmount}");
-                chosenItemAmount -= chosenAmount;
-                amounts.Add(chosenAmount);
-                itemList.Add(item);
-            }
-            else
-                continue;
+            selectedItems.Add(shuffledItems[i]);
+            amounts.Add(new System.Random().Next(1, 3));
         }
-
-        return CreateMessage(itemList, amounts);
+        return CreateMessage(selectedItems, amounts);
     }
 
     public Message CreateMessage(List<Item> items, List<int> amounts)
