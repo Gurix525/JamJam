@@ -13,7 +13,11 @@ public class InventoryView : MonoBehaviour
 
     private void Start()
     {
-        _inventory.onInventoryChangeCallback += _inventory_onInventoryChangeCallback;
+        Inventory inventory = FindObjectOfType<Inventory>();
+        if (inventory)
+        {
+            inventory.onInventoryChangeCallback += _inventory_onInventoryChangeCallback;
+        }
     }
 
     private void _inventory_onInventoryChangeCallback()

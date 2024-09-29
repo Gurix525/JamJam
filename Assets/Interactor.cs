@@ -34,6 +34,10 @@ public class Interactor : MonoBehaviour
         {
             _targetInteractable = null;
         }
+        if (_targetInteractable)
+        {
+            Debug.Log(_targetInteractable.name);
+        }
     }
 
     public void OnInteract(InputValue value)

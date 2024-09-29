@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        DontDestroyOnLoad(this);
         _balancingSystem = FindObjectOfType<BalancingSystem>();
         _playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
         onInventoryChangeCallback += _playerMovement.UpdateSpeed;

@@ -2640,7 +2640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _healthSystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665663711}
     - target: {fileID: 1527838125789125640, guid: 766ff88f29f0473429991f43fc60cab8,
         type: 3}
       propertyPath: _trucksManager
@@ -4473,6 +4473,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -906125673610837211, guid: 5bf1c12f52cfe914f8e84a5037692fb6,
+        type: 3}
+      propertyPath: _maxInteractionDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7627647906287889906, guid: 5bf1c12f52cfe914f8e84a5037692fb6,
         type: 3}
       propertyPath: m_Name
@@ -5705,6 +5710,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1289567765}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1665663711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8153731789979008056, guid: 5bf1c12f52cfe914f8e84a5037692fb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1289567765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1591fd2e30b83374b92c63560debfefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1667476176
 GameObject:
   m_ObjectHideFlags: 0
