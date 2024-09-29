@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Truck : Interactable
 {
-    private List<GameObject> _items = new List<GameObject>();
     private Inventory _inventory;
 
     [field: SerializeField]
@@ -11,7 +10,7 @@ public class Truck : Interactable
 
     public Message Message { get; private set; }
 
-    public List<GameObject> Items => _items;
+    public List<GameObject> Items { get; } = new();
 
     public bool IsTaken { get; private set; }
 
@@ -25,7 +24,7 @@ public class Truck : Interactable
         GameObject item = _inventory.RemoveItemFromStack();
         if (item != null)
         {
-            _items.Add(item);
+            Items.Add(item);
         }
     }
 
@@ -42,16 +41,12 @@ public class Truck : Interactable
     public void Take(Message message)
     {
         IsTaken = true;
+        gameObject.SetActive(true);
         Message = message;
     }
 
     public void UnTake()
     {
         IsTaken = false;
-    }
-
-    public List<GameObject> GetItems()
-    {
-        return _items;
     }
 }
