@@ -18,6 +18,6 @@ public class TruckTimer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _image.fillAmount = truck.Timer / truck.MaxTimer;
+        _image.fillAmount = 1 - truck.Timer / truck.MaxTimer;
     }
 }

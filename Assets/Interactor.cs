@@ -25,13 +25,18 @@ public class Interactor : MonoBehaviour
             _targetInteractable = null;
             return;
         }
-        if (Vector3.Distance(_interactables.First().transform.position, transform.position) < _maxInteractionDistance)
+        if (Vector3.Distance(_interactables.First().transform.position, transform.position) < _maxInteractionDistance &&
+            _interactables.First().isActiveAndEnabled)
         {
             _targetInteractable = _interactables.First();
         }
         else
         {
             _targetInteractable = null;
+        }
+        if (_targetInteractable)
+        {
+            Debug.Log(_targetInteractable.name);
         }
     }
 

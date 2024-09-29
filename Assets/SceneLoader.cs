@@ -13,6 +13,9 @@ public class SceneLoader : MonoBehaviour
 
     public Image Fade;
 
+    public GameObject Tutorial;
+    public GameObject TutorialFirst;
+
     private float alpha = 0f;
     private float fade;
 
@@ -53,7 +56,14 @@ public class SceneLoader : MonoBehaviour
     IEnumerator LoadSceneSequence()
     {
         FadeOut();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
+
+        Tutorial.SetActive(true);
+        yield return new WaitForSeconds(5f);
+
+        TutorialFirst.SetActive(false);
+
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneToLoad.name, LoadSceneMode.Single);
         StopAllCoroutines();
     }
