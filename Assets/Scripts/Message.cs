@@ -1,20 +1,18 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Message : MonoBehaviour
+[Serializable]
+public class Message
 {
-    [SerializeField] private MessageObject _messageObject;
-    [SerializeField] private TMPro.TMP_Text _text;
-
-    public void SetUpMessageObject(List<Item> items, List<int> amounts, Truck truck)
+    public string Text { get; }
+    public List<Item> Items { get; } = new();
+    public List<int> Amounts { get; } = new();
+    public Message(List<Item> items, List<int> amounts, string text)
     {
-        _messageObject = new MessageObject(items, amounts, truck);
-    }
-
-    public void SetMessageText(string text)
-    {
-        _text.text = text;
-        _messageObject.Message = text;
+        Items = items;
+        Amounts = amounts;
+        Text = text;
     }
 }

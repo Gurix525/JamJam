@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Phone : Interactable
 {
     [SerializeField]
-    private MessagePanel _messagesPanel;
+    private TrucksManager _trucksManager;
+
+    [SerializeField]
+    private EmergencyMessageGenerator _emergencyMessageGenerator;
 
     [SerializeField] private float _minCooldownTime, _maxCooldownTime;
 
@@ -16,13 +16,12 @@ public class Phone : Interactable
 
     private void Start()
     {
-        _messagesPanel = FindObjectOfType<MessagePanel>();
         _cooldown = 3F;
     }
 
     private void FixedUpdate()
     {
-        if (_messagesPanel.ChildrenCount < 3)
+        if (_trucksManager.IsAnyTruckFree)
             if (!_isCalling)
             {
                 _cooldown -= Time.fixedDeltaTime;
@@ -71,6 +70,6 @@ public class Phone : Interactable
     {
         _isCalling = false;
         RandomizeCooldown();
-        _messagesPanel.GetComponent<EmergencyMessageGenerator>().GenerateItemList();
+        _trucksManager.TakeTruck(_emergencyMessageGenerator.GenerateMessage());
     }
 }

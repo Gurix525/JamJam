@@ -4,23 +4,12 @@ using UnityEngine;
 
 public class EmergencyMessageGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _messageObject;
     [SerializeField] private Item[] _itemPrefabs;
 
     [SerializeField] private int _maxItemsAmount;
 
-    private Truck t;
-
-    private void Start()
+    public Message GenerateMessage()
     {
-        GenerateItemList();
-    }
-
-    public void GenerateItemList()
-    {
-        if (transform.childCount >= 3)
-            return;
-
         List<Item> itemList = new List<Item>();
         Array values = Enum.GetValues(typeof(Situations));
 
@@ -31,14 +20,14 @@ public class EmergencyMessageGenerator : MonoBehaviour
         int chosenItemAmount = UnityEngine.Random.Range(1, _maxItemsAmount + 1);
         List<int> amounts = new List<int>();
 
-        foreach (Item item in _itemPrefabs) 
+        foreach (Item item in _itemPrefabs)
         {
             Debug.Log($"Iteracja przedmiotu {item.Name}");
             bool situationPasses = false;
 
-            foreach(int element in item.Situations)
+            foreach (int element in item.Situations)
             {
-                if(element == (int)situation) 
+                if (element == (int)situation)
                 {
                     Debug.Log("Sytuacja pasuje");
                     situationPasses = true;
@@ -48,7 +37,6 @@ public class EmergencyMessageGenerator : MonoBehaviour
 
             if (!situationPasses)
                 continue;
-
 
             Debug.Log("Wybieram ilo��");
             int chosenAmount = UnityEngine.Random.Range(item.MinAmount, item.MaxAmount + 1);
@@ -64,13 +52,12 @@ public class EmergencyMessageGenerator : MonoBehaviour
                 continue;
         }
 
-        CreateMessage(itemList, amounts);
+        return CreateMessage(itemList, amounts);
     }
 
-    public void CreateMessage(List<Item> items, List<int> amounts)
+    public Message CreateMessage(List<Item> items, List<int> amounts)
     {
         string result = "", list = "";
-
         int i = 0;
         foreach (Item item in items)
         {
@@ -78,25 +65,7 @@ public class EmergencyMessageGenerator : MonoBehaviour
             list += (i > 0 ? "\n" : "") + $"{item.Name}-{amounts[i]}";
             i++;
         }
-
-        List<Truck> trucks = new List<Truck>(FindObjectsOfType<Truck>());
-
-        foreach (Truck truck in trucks)
-        {
-            if (truck.GetTaken())
-            {
-                t = truck;
-                break;
-            }
-            
-        }
-
-        if (t != null)
-        {
-            MessagePanel messagePanel = _messageObject.GetComponent<MessagePanel>();
-            messagePanel.SetMessageText(result + ":\n" + list);
-            messagePanel.SetUpMessageObject(items, amounts, t);
-        }
+        return new Message(items, amounts, result + ":\n" + list);
     }
 }
 
