@@ -18,9 +18,26 @@ public class Truck : Interactable
 
     public bool IsTaken { get; private set; }
 
+    [field: SerializeField]
+    private float cooldownTime;
+
+    private float _timer;
+
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (IsTaken)
+        {
+            _timer += Time.fixedTime;
+        }
+        if (_timer >= cooldownTime)
+        {
+            UnTake();
+        }
     }
 
     public override void Interact()
@@ -56,6 +73,7 @@ public class Truck : Interactable
 
     public void Take(Message message)
     {
+        _timer = 0f;
         IsTaken = true;
         gameObject.SetActive(true);
         Message = message;
@@ -65,5 +83,15 @@ public class Truck : Interactable
     {
         IsTaken = false;
         gameObject.SetActive(false);
+    }
+
+    public float GetTimer()
+    {
+        return _timer;
+    }
+
+    public float GetCooldownTime()
+    {
+        return cooldownTime;
     }
 }
