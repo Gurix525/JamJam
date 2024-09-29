@@ -68,7 +68,8 @@ public class BalancingSystem : MonoBehaviour
 
     private void AddOffset()
     {
-        _balancePointer.anchoredPosition += _balancePointer.anchoredPosition * _unbalancingSpeed * Time.deltaTime * (1 + _unbalanceMultiplierPerItem * _inventory.GetStackLength());
+        _balancePointer.anchoredPosition += _balancePointer.anchoredPosition * _unbalancingSpeed * Time.deltaTime
+        *(1 + _unbalanceMultiplierPerItem * _inventory.GetStackLength());
     }
 
     private void AddBalance()

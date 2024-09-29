@@ -12,7 +12,7 @@ public class Interactor : MonoBehaviour
 
     private void Start()
     {
-        _interactables = Object.FindObjectsOfType<Interactable>();
+        _interactables = Object.FindObjectsOfType<Interactable>(true);
     }
 
     private void FixedUpdate()
