@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -14,6 +15,10 @@ public class Inventory : MonoBehaviour
     public delegate void OnInventoryChange();
     public event OnInventoryChange onInventoryChangeCallback;
     public int ItemsCount => _items.Count;
+
+    public IEnumerable<Item> Items => _items
+        .Select(item => item.GetComponent<Item>())
+        .ToArray();
 
     public bool CanTakeAdditionalIten => ItemsCount < _maxInventoryAmount;
 

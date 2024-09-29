@@ -49,4 +49,5 @@ MonoBehaviour:
   - todo
   _minAmount: 1
   _maxAmount: 2
-  Situations: 00000000
+  <ViewPrefab>k__BackingField: {fileID: 7890214985565697198, guid: b85aaf80469e48845b30c0a7ab68ddf0,
+    type: 3}
