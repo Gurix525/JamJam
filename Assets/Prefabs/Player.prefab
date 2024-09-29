@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 7607999969908944223}
   - component: {fileID: 3315839959814332634}
   - component: {fileID: -906125673610837211}
+  - component: {fileID: 4334040349988415299}
+  - component: {fileID: 8153731789979008056}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -171,6 +173,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxInteractionDistance: 3
+--- !u!114 &4334040349988415299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627647906287889906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753ca3f9b40c20c4fad67f860c0528bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 5013056556296536274}
+--- !u!114 &8153731789979008056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627647906287889906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1591fd2e30b83374b92c63560debfefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 3
 --- !u!1001 &1655603288506067446
 PrefabInstance:
   m_ObjectHideFlags: 0
