@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Truck : Interactable
 {
-
-
     private List<GameObject> _items = new List<GameObject>();
     private Inventory _inventory;
 

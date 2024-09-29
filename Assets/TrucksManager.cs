@@ -19,11 +19,20 @@ public class TrucksManager : MonoBehaviour
         }
     }
 
+    public IEnumerable<Truck> TakenTrucks
+    {
+        get
+        {
+            return _trucks
+                .Where(truck => truck.IsTaken);
+        }
+    }
+
     public bool IsAnyTruckFree => FreeTrucks.Count() > 0;
 
     public void TakeTruck(Message message)
     {
         FreeTrucks.First().Take(message);
-        _messagePanel.UpdateMessageViews(_trucks);
+        _messagePanel.UpdateMessageViews(TakenTrucks);
     }
 }

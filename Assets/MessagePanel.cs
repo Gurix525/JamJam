@@ -12,7 +12,11 @@ public class MessagePanel : MonoBehaviour
         Queue<Truck> trucksQueue = new Queue<Truck>(trucks.ToArray());
         for (int i = 0; i < 3; i++)
         {
-            Truck truck = trucksQueue.Dequeue();
+            Truck truck = null;
+            if (trucksQueue.Count > 0)
+            {
+                truck = trucksQueue.Dequeue();
+            }
             if (truck != null)
             {
                 _messageViews[i].gameObject.SetActive(true);
